@@ -31,33 +31,23 @@ input,select,textarea{font-family:inherit;color:inherit}
 --gold:#f5c451;
 --radius:18px;
 --radius-sm:12px;
---maxw:1180px;
 }
 body::before,body::after{content:"";position:fixed;pointer-events:none;z-index:0}
 body::before{top:-160px;left:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(34,197,94,.18),transparent 60%);filter:blur(40px)}
 body::after{bottom:-220px;right:-220px;width:620px;height:620px;background:radial-gradient(circle,rgba(99,102,241,.14),transparent 60%);filter:blur(60px)}
 .grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.06;mix-blend-mode:overlay}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;position:relative;z-index:2}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
 section{padding:72px 0;position:relative;z-index:2}
 @media (max-width:700px){section{padding:56px 0}}
-
-/* ===== STRIP ===== */
 .strip{background:linear-gradient(90deg,rgba(34,197,94,.18),rgba(34,197,94,.06));border-bottom:1px solid rgba(34,197,94,.18);font-size:13px;text-align:center;padding:10px 14px;position:relative;z-index:5}
 .strip b{color:#bbf7d0}
-.strip a{color:#86efac;font-weight:600;margin-left:6px;cursor:pointer}
-
-/* ===== NAV ===== */
+.strip a{color:#86efac;font-weight:600;margin-left:6px}
 header.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(18px);-webkit-backdrop-filter:saturate(140%) blur(18px);background:rgba(8,10,16,.55);border-bottom:1px solid rgba(255,255,255,.08);transition:all .35s ease}
 header.nav.scrolled{background:rgba(8,10,16,.78);border-bottom-color:rgba(255,255,255,.14)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px;cursor:pointer}
-
-/* ---- FIXED AVATAR RING: thin glowing green line instead of thick padding ---- */
-.brand .ring{position:relative;width:38px;height:38px;border-radius:50%;flex:none;
-  background:#07090f;
-  box-shadow:0 0 0 1px rgba(34,197,94,.6), 0 0 12px 2px rgba(34,197,94,.45);
-}
-.brand .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:1px solid rgba(34,197,94,.35)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+.brand .ring{position:relative;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#86efac);padding:2px;flex:none;box-shadow:0 6px 22px rgba(34,197,94,.35)}
+.brand .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:2px solid #07090f}
 .brand .live-dot{position:absolute;right:-2px;bottom:-2px;width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid #07090f;animation:pulse 2s infinite}
 .brand .name{font-size:15px}
 .brand .role{font-size:11px;color:#9aa3b2;margin-top:-2px}
@@ -70,12 +60,8 @@ header.nav.scrolled{background:rgba(8,10,16,.78);border-bottom-color:rgba(255,25
 .btn-ghost:hover{background:rgba(255,255,255,.08)}
 .btn .ico{width:16px;height:16px}
 .nav-link{display:none}
-@media (min-width:880px){.nav-link{display:inline-flex;gap:22px;font-size:14px;color:#9aa3b2}.nav-link a:hover{color:#fff}.nav-link a{cursor:pointer}}
+@media (min-width:880px){.nav-link{display:inline-flex;gap:22px;font-size:14px;color:#9aa3b2}.nav-link a:hover{color:#fff}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.7)}70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-@keyframes ringglow{0%,100%{box-shadow:0 0 0 1px rgba(34,197,94,.6), 0 0 10px 2px rgba(34,197,94,.35)}50%{box-shadow:0 0 0 1px rgba(34,197,94,.9), 0 0 18px 4px rgba(34,197,94,.6)}}
-.brand .ring{animation:ringglow 3s ease-in-out infinite}
-
-/* ===== HERO ===== */
 .hero{padding:60px 0 40px;text-align:center}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);color:#a7f3d0;font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase}
 .eyebrow .live{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
@@ -99,19 +85,17 @@ h1.title .accent{background:linear-gradient(120deg,#22c55e,#86efac 60%,#fde68a);
 .hero-orbit .f2{top:30px;right:0;animation-delay:1.2s}
 .hero-orbit .f3{bottom:0;left:30%;animation-delay:2.4s}
 .hero-orbit .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px #22c55e}
-.hero-orbit .core{margin:0 auto;width:min(360px,72vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,rgba(34,197,94,.4),transparent 55%),radial-gradient(circle at 80% 75%,rgba(99,102,241,.35),transparent 55%),#0b1018;border:1px solid rgba(255,255,255,.14);position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 0 60px rgba(34,197,94,.18)}
-/* ---- FIXED hero avatar: thin glowing ring ---- */
-.hero-orbit .core img{position:absolute;inset:14%;width:72%;height:72%;border-radius:50%;object-fit:cover;border:1px solid rgba(34,197,94,.5);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 0 1px rgba(34,197,94,.4),0 0 22px 4px rgba(34,197,94,.35);animation:ringglow 3s ease-in-out infinite}
-.hero-orbit .core::after{content:"";position:absolute;inset:-2px;border-radius:50%;background:conic-gradient(from 0deg,transparent,rgba(34,197,94,.7),transparent 30%);animation:spin 8s linear infinite;mask:radial-gradient(circle,transparent 64%,#000 65%);-webkit-mask:radial-gradient(circle,transparent 64%,#000 65%)}
+/* UPDATED START: Thin stroke with green glow */
+.hero-orbit .core{margin:0 auto;width:min(320px,65vw);aspect-ratio:1;border-radius:50%;position:relative;overflow:hidden;box-shadow:0 0 35px rgba(34,197,94,.6);border:3px solid #22c55e;}
+.hero-orbit .core img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+.hero-orbit .core::after{display:none;}
+/* UPDATED END */
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @media (max-width:700px){.hero-orbit .float{font-size:11px;padding:8px 10px}.hero-orbit .f1{top:-6px;left:0}.hero-orbit .f2{top:18px;right:0}.hero-orbit .f3{bottom:6px;left:18%}}
-
 .sec-tag{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:12px;color:#cbd5e1;letter-spacing:.4px;text-transform:uppercase;font-weight:600}
 h2.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.02em;font-size:clamp(28px,4.6vw,46px);line-height:1.1;margin:14px 0 12px}
 .sec-sub{color:#9aa3b2;max-width:640px;margin-bottom:36px;font-size:16px}
-
-/* ===== STATS ===== */
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
 @media (max-width:640px){.stats-grid{grid-template-columns:1fr;gap:12px}}
 .stat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;position:relative;overflow:hidden;transition:transform .3s ease,border-color .3s ease}
@@ -124,8 +108,6 @@ h2.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-s
 .perk{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px}
 .perk .tick{width:22px;height:22px;border-radius:50%;background:rgba(34,197,94,.16);color:#22c55e;display:grid;place-items:center;flex:none;font-size:13px;font-weight:800}
 .perk span{font-size:14px;color:#d1d5db}
-
-/* ===== DASHBOARD ===== */
 .dash{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.14);border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative}
 .dash::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 300px at 80% -10%,rgba(34,197,94,.12),transparent 60%),radial-gradient(600px 300px at 10% 110%,rgba(99,102,241,.1),transparent 60%);pointer-events:none}
 .dash-top{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.25)}
@@ -139,8 +121,7 @@ h2.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-s
 .dash-top .live-pill .d{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
 .dash-body{padding:22px;position:relative;z-index:1}
 .dash-id{display:flex;align-items:center;gap:14px;margin-bottom:22px}
-/* ---- FIXED dash avatar: thin glowing ring ---- */
-.dash-id .pfp{width:54px;height:54px;border-radius:50%;object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 0 1px rgba(34,197,94,.6),0 0 14px 2px rgba(34,197,94,.4);border:1px solid rgba(34,197,94,.4);animation:ringglow 3s ease-in-out infinite}
+.dash-id .pfp{width:54px;height:54px;border-radius:50%;border:2px solid rgba(255,255,255,.1);object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,.4)}
 .dash-id .who{flex:1}
 .dash-id .who .n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:.5px;font-size:18px}
 .dash-id .who .r{font-size:12px;color:#9aa3b2}
@@ -171,8 +152,6 @@ h2.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-s
 .bar-row span{text-align:center;font-size:11px;color:#9aa3b2}
 .dash-note{font-size:12px;color:#9aa3b2;margin-top:14px;text-align:center}
 .dash-note b{color:#86efac;font-weight:700}
-
-/* ===== CAROUSEL ===== */
 .car-wrap{position:relative}
 .car{overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.02)}
 .car-track{display:flex;transition:transform .55s cubic-bezier(.2,.7,.2,1);will-change:transform}
@@ -199,16 +178,12 @@ h2.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-s
 .car-dots{display:flex;gap:6px}
 .car-dots .d{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .25s}
 .car-dots .d.active{background:#22c55e;width:22px;border-radius:5px}
-
-/* ===== IMAGINE ===== */
 .imagine{background:linear-gradient(180deg,rgba(34,197,94,.06),rgba(34,197,94,0)),#0c111c;border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:48px 32px;text-align:center;position:relative;overflow:hidden}
 .imagine::after{content:"";position:absolute;inset:0;background:radial-gradient(500px 200px at 50% 0%,rgba(34,197,94,.15),transparent 60%);pointer-events:none}
 .imagine .list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px auto 28px;max-width:700px;text-align:left}
 @media (max-width:640px){.imagine .list{grid-template-columns:1fr}}
 .imagine .list .li{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:12px 14px;border-radius:12px;font-size:14px;color:#d1d5db}
 .imagine .list .li .tick{width:20px;height:20px;border-radius:50%;background:rgba(34,197,94,.16);color:#22c55e;display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
-
-/* ===== LEAD FORM ===== */
 .lead{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:32px;position:relative;overflow:hidden}
 .lead::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 200px at 80% 0%,rgba(34,197,94,.12),transparent 60%);pointer-events:none}
 .lead-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap;position:relative;z-index:1}
@@ -234,8 +209,6 @@ h2.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-s
 .submit:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(34,197,94,.35),inset 0 1px 0 rgba(255,255,255,.35)}
 .lead .note{margin-top:12px;font-size:12px;color:#9aa3b2;text-align:center;position:relative;z-index:1}
 .lead .note b{color:#86efac}
-
-/* ===== CONNECT / BIGGER ===== */
 .bigger{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
 @media (max-width:820px){.bigger{grid-template-columns:1fr}}
 .bigger ul{list-style:none;padding:0;margin:18px 0 26px}
@@ -243,14 +216,12 @@ h2.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-s
 .bigger ul li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#22c55e;margin-top:9px;box-shadow:0 0 10px #22c55e}
 .bigger-chat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:16px;backdrop-filter:blur(12px)}
 .bigger-chat .who{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.bigger-chat .who img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid rgba(34,197,94,.4);box-shadow:0 0 0 1px rgba(34,197,94,.5),0 0 10px 2px rgba(34,197,94,.35)}
+.bigger-chat .who img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.1)}
 .bigger-chat .who .nm{font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px}
 .bigger-chat .who .ty{font-size:11px;color:#86efac;display:flex;align-items:center;gap:4px}
 .typing-dot{width:5px;height:5px;background:#86efac;border-radius:50%;animation:tdot 1.2s infinite}
 .typing-dot:nth-child(2){animation-delay:.2s}.typing-dot:nth-child(3){animation-delay:.4s}
 @keyframes tdot{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
-
-/* ===== FAB ===== */
 .fab{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 .fab .bubble{background:#fff;color:#111827;padding:10px 14px;border-radius:14px 14px 4px 14px;font-size:13px;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.4);animation:bob 3s ease-in-out infinite;max-width:230px;line-height:1.35}
 .fab .bubble small{display:block;color:#16a34a;font-weight:800;font-size:11px;margin-top:2px}
@@ -259,11 +230,9 @@ h2.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-s
 .fab .btn-wa::before{content:"";position:absolute;inset:-8px;border-radius:50%;background:rgba(34,197,94,.4);animation:ringp 2s infinite;z-index:-1}
 @keyframes ringp{0%{transform:scale(.85);opacity:.8}100%{transform:scale(1.4);opacity:0}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-
 footer{padding:36px 0;text-align:center;color:#9aa3b2;font-size:13px;border-top:1px solid rgba(255,255,255,.08);margin-top:24px}
 footer .brand-foot{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px;font-weight:800;color:#fff;font-family:'Plus Jakarta Sans',sans-serif}
-footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid rgba(34,197,94,.4);box-shadow:0 0 0 1px rgba(34,197,94,.5),0 0 10px 2px rgba(34,197,94,.35)}
-
+footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.1)}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 .reveal.delay-1{transition-delay:.1s}
@@ -271,85 +240,27 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 .reveal.delay-3{transition-delay:.3s}
 .reveal.delay-4{transition-delay:.4s}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-/* ===================================================================
-   DESKTOP OPTIMIZATION (>= 1000px)
-   - Wider effective canvas, larger hero, side-by-side layouts
-   =================================================================== */
-@media (min-width: 1000px){
-  :root{ --maxw: 1280px; }
-
-  .hero{padding:96px 0 64px}
-  .hero-cta{margin-bottom:38px}
-  .hero-orbit{max-width:1040px;margin-top:56px}
-  .hero-orbit .core{width:min(420px,38vw)}
-
-  /* Why section: stats + perks side by side */
-  #why .wrap > .stats-grid{margin-bottom:0}
-  #why .wrap{display:grid;grid-template-columns:1fr;}
-  .stats-grid{grid-template-columns:repeat(3,1fr)}
-  .stat-card{padding:28px}
-  .stat-card .v{font-size:44px}
-
-  .why-perks{grid-template-columns:repeat(4,1fr)}
-
-  /* Dashboard: roomier grid, KPIs in one row */
-  .dash-body{padding:32px}
-  .dash-grid{grid-template-columns:repeat(4,1fr);gap:16px}
-  .kpi{padding:20px}
-  .kpi .val{font-size:28px}
-  .community{padding:22px 26px}
-  .chart{height:200px}
-
-  /* Carousel: more breathing room */
-  .slide{padding:44px 48px;gap:40px}
-  .slide blockquote{font-size:19px}
-
-  /* Imagine section list 4-up */
-  .imagine{padding:64px 48px}
-  .imagine .list{grid-template-columns:repeat(2,1fr);max-width:820px}
-
-  /* Lead form: form on left, supporting info on right */
-  #lead-form .lead-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start}
-  .lead{padding:40px}
-  .lead-side{display:flex;flex-direction:column;gap:18px;justify-content:center}
-  .lead-side .side-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px}
-  .lead-side .side-card h4{margin:0 0 8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;color:#fff}
-  .lead-side .side-card p{margin:0;font-size:13px;color:#9aa3b2;line-height:1.5}
-
-  /* Connect section already grid-based via .bigger, give more gap */
-  .bigger{gap:48px}
-
-  /* Section titles a bit larger spacing */
-  .sec-sub{margin-bottom:44px}
-
-  footer{padding:48px 0}
-}
-
-@media (min-width: 1280px){
-  .hero-orbit .core{width:min(460px,34vw)}
-}
 </style>
 </head>
 <body>
 
 <div class="grain"></div>
 
-<div class="strip"><b>&#9889; Only 5 spots left today</b> &#8212; slots reset at midnight<a href="#lead-form" class="js-scroll" data-target="lead-form" role="button" tabindex="0">Claim yours &#8594;</a></div>
+<div class="strip"><b>&#9889; Only 5 spots left today</b> &#8212; slots reset at midnight<a href="#lead-form" class="js-scroll" data-target="lead-form">Claim yours &#8594;</a></div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#top" class="brand js-scroll" data-target="top" role="button" tabindex="0">
+    <a href="#top" class="brand js-scroll" data-target="top">
       <span class="ring"><img src="https://customer-assets.emergentagent.com/job_f9390e75-a55a-48e3-8b01-d0e1887c0f3d/artifacts/rgz9cuzk_1764862506541.webp" alt="Alok Rawat"><span class="live-dot"></span></span>
       <span><span class="name">Alok Rawat</span><br><span class="role">Your Success Partner</span></span>
     </a>
     <div class="nav-link">
-      <a href="#why" class="js-scroll" data-target="why" role="button" tabindex="0">Why Me</a>
-      <a href="#dashboard" class="js-scroll" data-target="dashboard" role="button" tabindex="0">Dashboard</a>
-      <a href="#feedback" class="js-scroll" data-target="feedback" role="button" tabindex="0">Stories</a>
+      <a href="#why" class="js-scroll" data-target="why">Why Me</a>
+      <a href="#dashboard" class="js-scroll" data-target="dashboard">Dashboard</a>
+      <a href="#feedback" class="js-scroll" data-target="feedback">Stories</a>
     </div>
     <div class="nav-cta">
-      <button class="btn btn-primary js-scroll" data-target="lead-form" type="button">
+      <button class="btn btn-primary js-scroll" data-target="lead-form">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.7 11.7 0 0012.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4 1.6 5.8L0 24l6.6-1.8a11.7 11.7 0 005.5 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3zM12.1 21.6c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.9 1 1-3.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.2 0-5.4 4.4-9.8 9.9-9.8 2.6 0 5.1 1 7 2.9a9.8 9.8 0 012.9 7c0 5.5-4.4 9.9-9.8 9.9z"/></svg>
         WhatsApp Me
       </button>
@@ -370,21 +281,21 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
       <span class="chip">&#8377;10K in 30 Days</span>
     </div>
     <div class="hero-cta reveal delay-3">
-      <button class="btn btn-primary js-scroll" data-target="lead-form" type="button">
+      <button class="btn btn-primary js-scroll" data-target="lead-form">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.7 11.7 0 0012.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4 1.6 5.8L0 24l6.6-1.8a11.7 11.7 0 005.5 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3z"/></svg>
         Message Me on WhatsApp
       </button>
-      <button class="btn btn-ghost js-scroll" data-target="feedback" type="button">
+      <button class="btn btn-ghost js-scroll" data-target="feedback">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         See Success Stories
       </button>
     </div>
     <div class="social-row reveal delay-4">
       <div class="avatars">
-        <img src="https://i.pravatar.cc/80?img=47" alt="">
-        <img src="https://i.pravatar.cc/80?img=32" alt="">
-        <img src="https://i.pravatar.cc/80?img=68" alt="">
-        <img src="https://i.pravatar.cc/80?img=12" alt="">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150" alt="">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150" alt="">
+        <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&w=150&h=150" alt="">
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150" alt="">
       </div>
       <div class="social-text"><b>500+ students</b> already earning<br><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.9/5</div>
     </div>
@@ -418,8 +329,8 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
     </div>
 
     <div class="hero-cta reveal delay-3" style="justify-content:flex-start">
-      <button class="btn btn-primary js-scroll" data-target="lead-form" type="button">WhatsApp Me</button>
-      <button class="btn btn-ghost js-scroll" data-target="lead-form" type="button">Book a Free Call</button>
+      <button class="btn btn-primary js-scroll" data-target="lead-form">WhatsApp Me</button>
+      <button class="btn btn-ghost js-scroll" data-target="lead-form">Book a Free Call</button>
     </div>
   </div>
 </section>
@@ -448,9 +359,9 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 
         <div class="dash-grid">
           <div class="kpi green"><div class="lbl">Today's Earnings</div><div class="val" data-count="12450" data-prefix="&#8377;" data-format="num">&#8377;0</div><div class="delta">&#9650; +18% vs yesterday</div></div>
-          <div class="kpi"><div class="lbl">Last 7 Days</div><div class="val" data-count="8320" data-prefix="&#8377;" data-format="num">&#8377;0</div><div class="delta">&#9650; +22% w/w</div></div>
-          <div class="kpi"><div class="lbl">Last 30 Days</div><div class="val" data-count="34280" data-prefix="&#8377;" data-format="num">&#8377;0</div><div class="delta">&#9650; +12% m/m</div></div>
-          <div class="kpi green"><div class="lbl">All Time</div><div class="val" data-count="115790" data-prefix="&#8377;" data-format="num">&#8377;0</div><div class="delta">Lifetime verified</div></div>
+          <div class="kpi"><div class="lbl">Last 7 Days</div><div class="val" data-count="84300" data-prefix="&#8377;" data-format="num">&#8377;0</div><div class="delta">&#9650; +22% w/w</div></div>
+          <div class="kpi"><div class="lbl">Last 30 Days</div><div class="val" data-count="342800" data-prefix="&#8377;" data-format="num">&#8377;0</div><div class="delta">&#9650; +12% m/m</div></div>
+          <div class="kpi green"><div class="lbl">All Time</div><div class="val" data-count="12450000" data-prefix="&#8377;" data-format="num">&#8377;0</div><div class="delta">Lifetime verified</div></div>
         </div>
 
         <div class="community">
@@ -500,7 +411,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 
           <div class="slide">
             <div>
-              <div class="who"><img src="https://i.pravatar.cc/120?img=32" alt=""><div><div class="nm">Sanjna</div><div class="lo">Student &#183; Lucknow</div></div></div>
+              <div class="who"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150" alt=""><div><div class="nm">Sanjna</div><div class="lo">Student &#183; Lucknow</div></div></div>
               <blockquote>Sir, I closed my first client for &#8377;22,000 &#8212; landing page + ads setup. Couldn't have done this without the roadmap.</blockquote>
               <div class="meta"><span>First Client</span><span>&#8377;22,000</span><span>30 days in</span></div>
             </div>
@@ -514,7 +425,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 
           <div class="slide">
             <div>
-              <div class="who"><img src="https://i.pravatar.cc/120?img=47" alt=""><div><div class="nm">Rahul</div><div class="lo">Job-holder &#183; Pune</div></div></div>
+              <div class="who"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150" alt=""><div><div class="nm">Rahul</div><div class="lo">Job-holder &#183; Pune</div></div></div>
               <blockquote>Job ke saath side income shuru ki &#8212; second month mein &#8377;38K cross. Roadmap clear tha, bas follow kiya.</blockquote>
               <div class="meta"><span>Side income</span><span>&#8377;38,000 / mo</span><span>2 months</span></div>
             </div>
@@ -528,7 +439,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 
           <div class="slide">
             <div>
-              <div class="who"><img src="https://i.pravatar.cc/120?img=12" alt=""><div><div class="nm">Priya</div><div class="lo">Housewife &#183; Jaipur</div></div></div>
+              <div class="who"><img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&w=150&h=150" alt=""><div><div class="nm">Priya</div><div class="lo">Housewife &#183; Jaipur</div></div></div>
               <blockquote>Phone se hi start kiya. Pehle &#8377;10K month 1 mein. Family ka attitude hi badal gaya.</blockquote>
               <div class="meta"><span>Phone-only</span><span>&#8377;10K month 1</span><span>From home</span></div>
             </div>
@@ -542,7 +453,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 
           <div class="slide">
             <div>
-              <div class="who"><img src="https://i.pravatar.cc/120?img=68" alt=""><div><div class="nm">Ankit</div><div class="lo">Freelancer &#183; Delhi</div></div></div>
+              <div class="who"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150" alt=""><div><div class="nm">Ankit</div><div class="lo">Freelancer &#183; Delhi</div></div></div>
               <blockquote>3 months mein &#8377;1.2L cross. Mentorship ka biggest fayda &#8212; kya nahi karna ye clear ho gaya.</blockquote>
               <div class="meta"><span>&#8377;1.2L in 3 months</span><span>Web dev</span><span>2 retainers</span></div>
             </div>
@@ -556,7 +467,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 
           <div class="slide">
             <div>
-              <div class="who"><img src="https://i.pravatar.cc/120?img=51" alt=""><div><div class="nm">Megha</div><div class="lo">Self-employed &#183; Indore</div></div></div>
+              <div class="who"><img src="https://images.unsplash.com/photo-1615598166567-28564bc7a610?auto=format&fit=crop&w=150&h=150" alt=""><div><div class="nm">Megha</div><div class="lo">Self-employed &#183; Indore</div></div></div>
               <blockquote>Boutique online le aayi &#8212; instagram ads + WhatsApp funnel set kiya. Sales 3x ho gayi.</blockquote>
               <div class="meta"><span>Boutique online</span><span>3x Sales</span><span>WhatsApp funnel</span></div>
             </div>
@@ -573,8 +484,8 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
       <div class="car-nav">
         <div class="car-dots" id="carDots"></div>
         <div class="car-arrows">
-          <button class="arr" id="prevBtn" aria-label="Previous" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-          <button class="arr" id="nextBtn" aria-label="Next" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button class="arr" id="prevBtn" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="arr" id="nextBtn" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
         </div>
       </div>
     </div>
@@ -593,7 +504,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
         <div class="li"><span class="tick">&#10003;</span>No boss, no commute, no permission slips</div>
         <div class="li"><span class="tick">&#10003;</span>Your family looking at you differently</div>
       </div>
-      <button class="btn btn-primary js-scroll" data-target="lead-form" style="padding:16px 26px;font-size:16px" type="button">Claim My Spot Now &#8594;</button>
+      <button class="btn btn-primary js-scroll" data-target="lead-form" style="padding:16px 26px;font-size:16px">Claim My Spot Now &#8594;</button>
       <div style="margin-top:12px;font-size:12px;color:#9aa3b2">Takes less than 60 seconds &#183; WhatsApp Business Number</div>
     </div>
   </div>
@@ -605,86 +516,69 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
     <h2 class="sec-title reveal delay-1">Don't Miss Your Chance</h2>
     <p class="sec-sub reveal delay-2"><b style="color:#fff">Slots close at midnight.</b> Join 500+ earning students.</p>
 
-    <div class="lead-grid">
-      <div class="lead reveal delay-2">
-        <div class="lead-top">
-          <div class="avs">
-            <div class="av">
-              <img src="https://i.pravatar.cc/80?img=47" alt="">
-              <img src="https://i.pravatar.cc/80?img=32" alt="">
-              <img src="https://i.pravatar.cc/80?img=68" alt="">
-              <img src="https://i.pravatar.cc/80?img=12" alt="">
-            </div>
-            <div class="tx"><b>500+ joined</b> &#183; <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.9/5</div>
+    <div class="lead reveal delay-2">
+      <div class="lead-top">
+        <div class="avs">
+          <div class="av">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150" alt="">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150" alt="">
+            <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&w=150&h=150" alt="">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150" alt="">
           </div>
-          <div class="spots">&#9201; 5 spots left today</div>
+          <div class="tx"><b>500+ joined</b> &#183; <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.9/5</div>
         </div>
-
-        <div id="leadForm">
-          <div class="field" id="f-name-wrap">
-            <label for="f-name">Your Name</label>
-            <input id="f-name" name="name" type="text" placeholder="e.g. Rahul Sharma" autocomplete="name">
-            <div class="errmsg">Please enter your name.</div>
-          </div>
-          <div class="row-2">
-            <div class="field" id="f-phone-wrap">
-              <label for="f-phone">WhatsApp Number</label>
-              <input id="f-phone" name="phone" type="tel" placeholder="10-digit number" inputmode="numeric" autocomplete="tel">
-              <div class="errmsg">Enter a valid 10-digit number.</div>
-            </div>
-            <div class="field" id="f-age-wrap">
-              <label for="f-age">Your Age</label>
-              <input id="f-age" name="age" type="number" placeholder="e.g. 22" min="14" max="80">
-              <div class="errmsg">Enter your age.</div>
-            </div>
-          </div>
-          <div class="field" id="f-prof-wrap">
-            <label for="f-prof">Current Profession</label>
-            <select id="f-prof" name="profession">
-              <option value="">Choose one</option>
-              <option>Student</option>
-              <option>Job-holder</option>
-              <option>Housewife</option>
-              <option>Self-employed / Business</option>
-              <option>Freelancer</option>
-              <option>Other</option>
-            </select>
-            <div class="errmsg">Please pick one.</div>
-          </div>
-          <div class="field" id="f-goal-wrap">
-            <label for="f-goal">Your Goal</label>
-            <select id="f-goal" name="goal">
-              <option value="">Pick what fits you best</option>
-              <option>Skill learning - I want to learn new skills</option>
-              <option>Side income - Extra earning along with current work</option>
-              <option>Job alternative - Replace my job with online income</option>
-              <option>Grow my business - Need ads / website / sales help</option>
-              <option>Just exploring</option>
-            </select>
-            <div class="errmsg">Please pick a goal.</div>
-          </div>
-
-          <button type="button" id="submitBtn" class="submit">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.7 11.7 0 0012.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4 1.6 5.8L0 24l6.6-1.8a11.7 11.7 0 005.5 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3z"/></svg>
-            Continue on WhatsApp
-          </button>
-          <div class="note">100% Private &#183; No spam &#183; 4.9/5 rated<br>Your WhatsApp will open with a <b>pre-filled message</b> &#8212; just hit send to connect with Alok.</div>
-        </div>
+        <div class="spots">&#9201; 5 spots left today</div>
       </div>
 
-      <div class="lead-side reveal delay-3">
-        <div class="side-card">
-          <h4>&#9889; Why people are joining today</h4>
-          <p>Slots are limited to keep mentorship 1-on-1 and personal. Once today's 5 spots fill, the next batch opens after a short waitlist.</p>
+      <div id="leadForm">
+        <div class="field" id="f-name-wrap">
+          <label for="f-name">Your Name</label>
+          <input id="f-name" name="name" type="text" placeholder="e.g. Rahul Sharma" autocomplete="name">
+          <div class="errmsg">Please enter your name.</div>
         </div>
-        <div class="side-card">
-          <h4>&#128241; What happens after you submit</h4>
-          <p>WhatsApp opens with your details pre-filled. Just hit send &#8212; Alok replies personally, usually within an hour, to map your roadmap.</p>
+        <div class="row-2">
+          <div class="field" id="f-phone-wrap">
+            <label for="f-phone">WhatsApp Number</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="10-digit number" inputmode="numeric" autocomplete="tel">
+            <div class="errmsg">Enter a valid 10-digit number.</div>
+          </div>
+          <div class="field" id="f-age-wrap">
+            <label for="f-age">Your Age</label>
+            <input id="f-age" name="age" type="number" placeholder="e.g. 22" min="14" max="80">
+            <div class="errmsg">Enter your age.</div>
+          </div>
         </div>
-        <div class="side-card">
-          <h4>&#128274; 100% Private</h4>
-          <p>Your number is only used to reply to you on WhatsApp. No spam, no resale, no marketing lists.</p>
+        <div class="field" id="f-prof-wrap">
+          <label for="f-prof">Current Profession</label>
+          <select id="f-prof" name="profession">
+            <option value="">Choose one</option>
+            <option>Student</option>
+            <option>Job-holder</option>
+            <option>Housewife</option>
+            <option>Self-employed / Business</option>
+            <option>Freelancer</option>
+            <option>Other</option>
+          </select>
+          <div class="errmsg">Please pick one.</div>
         </div>
+        <div class="field" id="f-goal-wrap">
+          <label for="f-goal">Your Goal</label>
+          <select id="f-goal" name="goal">
+            <option value="">Pick what fits you best</option>
+            <option>Skill learning - I want to learn new skills</option>
+            <option>Side income - Extra earning along with current work</option>
+            <option>Job alternative - Replace my job with online income</option>
+            <option>Grow my business - Need ads / website / sales help</option>
+            <option>Just exploring</option>
+          </select>
+          <div class="errmsg">Please pick a goal.</div>
+        </div>
+
+        <button type="button" id="submitBtn" class="submit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.7 11.7 0 0012.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4 1.6 5.8L0 24l6.6-1.8a11.7 11.7 0 005.5 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3z"/></svg>
+          Continue on WhatsApp
+        </button>
+        <div class="note">100% Private &#183; No spam &#183; 4.9/5 rated<br>Your WhatsApp will open with a <b>pre-filled message</b> &#8212; just hit send to connect with Alok.</div>
       </div>
     </div>
   </div>
@@ -702,7 +596,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
           <li>Honest opinions on what you should learn first</li>
           <li>If we're a fit, we build. If not, you still learn.</li>
         </ul>
-        <button class="btn btn-primary js-scroll" data-target="lead-form" style="padding:14px 22px" type="button">Message Me on WhatsApp</button>
+        <button class="btn btn-primary js-scroll" data-target="lead-form" style="padding:14px 22px">Message Me on WhatsApp</button>
         <div style="margin-top:8px;font-size:12px;color:#9aa3b2">Avg. reply in ~1 hour</div>
       </div>
       <div class="bigger-chat reveal delay-3">
@@ -736,7 +630,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 
 <div class="fab">
   <div class="bubble">Hi! &#128075; Ready to start?<small>Tap to claim your spot</small></div>
-  <button class="btn-wa js-scroll" data-target="lead-form" aria-label="WhatsApp Alok" type="button">
+  <button class="btn-wa js-scroll" data-target="lead-form" aria-label="WhatsApp Alok">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M20.5 3.5A11.7 11.7 0 0012.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4 1.6 5.8L0 24l6.6-1.8a11.7 11.7 0 005.5 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3zm-8.4 18.1c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.9 1 1-3.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.2 0-5.4 4.4-9.8 9.9-9.8 2.6 0 5.1 1 7 2.9a9.8 9.8 0 012.9 7c0 5.5-4.4 9.9-9.8 9.9zm5.6-7.3c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0-1.3-.5-2.5-1.5c-.9-.8-1.5-1.8-1.7-2.2s0-.5.1-.7l.5-.5c.2-.2.2-.3.3-.5s.1-.4 0-.5-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3 2.1 3.2 5 4.5c.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/></svg>
   </button>
 </div>
@@ -746,56 +640,27 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
   document.getElementById('yr').textContent = new Date().getFullYear();
   var WA_NUMBER = '917380889484';
 
-  /* -------------------------------------------------------------
-     SCROLL-TO-SECTION
-     Odoo often loads jQuery/other scripts that can attach extra
-     click handlers or wrap elements in unexpected containers.
-     To make this bullet-proof inside Odoo website builder pages:
-       1. Bind on document via event delegation (capture phase)
-          instead of only on the elements found at load time —
-          this still works even if Odoo re-renders/moves nodes.
-       2. Use both click + (for safety) pointerup.
-       3. Always preventDefault to stop default anchor jump,
-          which can conflict with Odoo's own anchor scroll script.
-     ------------------------------------------------------------- */
-  function getOffset(el){
-    var r = el.getBoundingClientRect();
-    return r.top + window.pageYOffset - 56;
-  }
-  function scrollToId(id){
-    var el = document.getElementById(id);
-    if(!el) return;
-    window.scrollTo({top: Math.max(0, getOffset(el)), behavior: 'smooth'});
-  }
+  function getOffset(el){ var r = el.getBoundingClientRect(); return r.top + window.pageYOffset - 56; }
+  function scrollTo(id){ var el = document.getElementById(id); if(!el) return; window.scrollTo({top: Math.max(0, getOffset(el)), behavior: 'smooth'}); }
 
-  function handleScrollTrigger(e){
-    var target = e.target.closest ? e.target.closest('.js-scroll') : null;
-    if(!target) return;
-    e.preventDefault();
-    e.stopPropagation();
-    var t = target.getAttribute('data-target');
-    if(!t) return;
-    scrollToId(t);
-  }
+  document.querySelectorAll('.js-scroll').forEach(function(b){
+    b.addEventListener('click', function(e){
+      e.preventDefault();
+      var t = b.getAttribute('data-target');
+      if(t === 'feedback'){
+        scrollTo('feedback');
+      } else {
+        scrollTo('lead-form');
+      }
+    });
+  });
 
-  document.addEventListener('click', handleScrollTrigger, true);
-  document.addEventListener('keydown', function(e){
-    if(e.key !== 'Enter' && e.key !== ' ') return;
-    var target = e.target.closest ? e.target.closest('.js-scroll') : null;
-    if(!target) return;
-    e.preventDefault();
-    var t = target.getAttribute('data-target');
-    if(t) scrollToId(t);
-  }, true);
-
-  /* ===== NAV SCROLL STYLE ===== */
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function(){
     if(window.scrollY > 20) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   }, {passive: true});
 
-  /* ===== REVEAL ON SCROLL ===== */
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(en){
       if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
@@ -803,7 +668,6 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
   }, {threshold: .12});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 
-  /* ===== COUNT-UP NUMBERS ===== */
   function fmt(n, format){ if(format === 'num') return n.toLocaleString('en-IN'); return String(n); }
   function animateCount(el){
     var target = parseFloat(el.getAttribute('data-count')) || 0;
@@ -828,7 +692,6 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
   }, {threshold: .4});
   document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
 
-  /* ===== CHART BARS ===== */
   var bars = document.querySelectorAll('#chart .bar');
   var cio2 = new IntersectionObserver(function(entries){
     entries.forEach(function(en){
@@ -842,7 +705,6 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
   }, {threshold: .3});
   if(bars.length) cio2.observe(document.getElementById('chart'));
 
-  /* ===== CAROUSEL ===== */
   var track = document.getElementById('carTrack');
   var slides = track ? track.children.length : 0;
   var idx = 0;
@@ -863,8 +725,8 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
     }
   }
   var pb = document.getElementById('prevBtn'), nb = document.getElementById('nextBtn');
-  if(pb) pb.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); go(idx - 1); });
-  if(nb) nb.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); go(idx + 1); });
+  if(pb) pb.addEventListener('click', function(){ go(idx - 1); });
+  if(nb) nb.addEventListener('click', function(){ go(idx + 1); });
 
   var sx = 0, sxe = 0;
   if(track){
@@ -883,13 +745,9 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
     if(track) track.addEventListener(ev, function(){ clearInterval(auto); }, {passive: true});
   });
 
-  /* ===== LEAD FORM SUBMIT -> WHATSAPP REDIRECT ===== */
   var submitBtn = document.getElementById('submitBtn');
   if(submitBtn){
-    submitBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-
+    submitBtn.addEventListener('click', function(){
       var nameEl = document.getElementById('f-name');
       var phoneEl = document.getElementById('f-phone');
       var ageEl = document.getElementById('f-age');
@@ -928,18 +786,7 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
         'Goal: ' + goal + '\n\n' +
         'Please connect with me.';
       var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
-
-      /* Use a temporary anchor + click() for max compatibility
-         inside Odoo iframes / sandboxed contexts where
-         window.open can be blocked by popup policies tied to
-         the original click event. */
-      var a = document.createElement('a');
-      a.href = url;
-      a.target = '_blank';
-      a.rel = 'noopener';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      window.open(url, '_blank');
     });
   }
 })();
@@ -947,3 +794,4 @@ footer .brand-foot img{width:28px;height:28px;border-radius:50%;object-fit:cover
 
 </body>
 </html>
+
